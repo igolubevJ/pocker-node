@@ -11,14 +11,18 @@ export default class PokerGame {
       new PokerPlayer('pocker_b'),
     ];
     
+    let round: number = 0;
     let gameWinner: PokerPlayer = null;
 
     while(gameWinner === null) {
+      this.StepLog(`Round: ${round} started.`);
+
       await this.ProcessGameAsync(players);
 
       gameWinner = this.DetectGameWinner(players);
 
       await WaitForSecondsAsync(3);
+      round++;
     }
 
     // todo: implement game close and rewards winner
