@@ -1,11 +1,10 @@
-
+import { ShuffleArray } from './Utils'
 
 export default class PockerGame {
   constructor() {
   }
 
   async RunAsync(): Promise<void> {
-    // todo: card shuffle
     const deck = this.GenerateDeck();
 
     console.log(JSON.stringify(deck));
@@ -31,6 +30,6 @@ export default class PockerGame {
       }
     }
 
-    return cards;
+    return ShuffleArray(cards);
   }
 }
