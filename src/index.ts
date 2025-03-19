@@ -1,1 +1,4 @@
-console.log("Hello boy-next-door!");
+import PockerGame from "./PockerGame";
+
+const game = new PockerGame();
+game.RunAsync();
