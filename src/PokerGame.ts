@@ -35,6 +35,14 @@ export default class PokerGame {
       () => this.RiverAsync(),
       () => this.ShowdownAsync(),
     ];
+
+    for (const street of streets) {
+      const streetWinner = await street();
+      if (streetWinner != null) {
+        // todo: money tranaction to winner
+        break; 
+      }
+    }
   }
 
   GenerateDeck() {
@@ -106,6 +114,7 @@ export default class PokerGame {
   }
 
   // Logger ---------------------------------------------------------
+  
   StepLog(message: string) {
     console.log('*** *** *** *** *** *** *** *** *** ***')
     console.log('\t' + message)
