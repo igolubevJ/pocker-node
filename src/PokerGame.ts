@@ -1,17 +1,17 @@
 import { ShuffleArray } from './Utils'
-import PockerPlayer from './PockerPlayer';
+import PokerPlayer from './PokerPlayer';
 
-export default class PockerGame {
+export default class PokerGame {
   constructor() {
   }
 
   async RunAsync(): Promise<void> {
-    const players: PockerPlayer[] = [
-      new PockerPlayer('player_a'),
-      new PockerPlayer('pocker_b'),
+    const players: PokerPlayer[] = [
+      new PokerPlayer('player_a'),
+      new PokerPlayer('pocker_b'),
     ];
     
-    let gameWinner: PockerPlayer;
+    let gameWinner: PokerPlayer = null;
 
     while(gameWinner === null) {
       await this.ProcessGameAsync(players);
@@ -20,10 +20,10 @@ export default class PockerGame {
     }
 
     // todo: implement game close and rewards winner
-    
+
   }
 
-  async ProcessGameAsync(players: PockerPlayer[]): Promise<void> {
+  async ProcessGameAsync(players: PokerPlayer[]): Promise<void> {
     const deck = this.GenerateDeck();
 
     players.forEach(player => player.Hand = this.TakeCardsFromDeck(deck, 2))
@@ -65,7 +65,7 @@ export default class PockerGame {
     return cards;
   }
 
-  DetectGameWinner(players: PockerPlayer[]): PockerPlayer {
+  DetectGameWinner(players: PokerPlayer[]): PokerPlayer {
     // todo: implement logic
     return null;
   }

@@ -1,4 +1,4 @@
-import PockerGame from "./PockerGame";
+import PokerGame from "./PokerGame";
 
-const game = new PockerGame();
+const game = new PokerGame();
 game.RunAsync();
