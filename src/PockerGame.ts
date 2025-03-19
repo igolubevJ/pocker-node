@@ -15,7 +15,12 @@ export default class PockerGame {
 
     while(gameWinner === null) {
       await this.ProcessGameAsync(players);
+
+      gameWinner = this.DetectGameWinner(players);
     }
+
+    // todo: implement game close and rewards winner
+    
   }
 
   async ProcessGameAsync(players: PockerPlayer[]): Promise<void> {
@@ -58,5 +63,10 @@ export default class PockerGame {
     }
 
     return cards;
+  }
+
+  DetectGameWinner(players: PockerPlayer[]): PockerPlayer {
+    // todo: implement logic
+    return null;
   }
 }
