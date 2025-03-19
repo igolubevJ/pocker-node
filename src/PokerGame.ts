@@ -1,4 +1,4 @@
-import { ShuffleArray } from './Utils'
+import { ShuffleArray, WaitForSecondsAsync } from './Utils'
 import PokerPlayer from './PokerPlayer';
 
 export default class PokerGame {
@@ -17,6 +17,8 @@ export default class PokerGame {
       await this.ProcessGameAsync(players);
 
       gameWinner = this.DetectGameWinner(players);
+
+      await WaitForSecondsAsync(3);
     }
 
     // todo: implement game close and rewards winner
@@ -38,6 +40,7 @@ export default class PokerGame {
 
     for (const street of streets) {
       const streetWinner = await street();
+      await WaitForSecondsAsync(1);
       if (streetWinner != null) {
         // todo: money tranaction to winner
         break; 
