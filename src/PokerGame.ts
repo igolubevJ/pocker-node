@@ -81,22 +81,34 @@ export default class PokerGame {
   // Game state ----------------------------------------------------
   
   async PreflopAsync(): Promise<PokerPlayer> {
+    this.StepLog('PREFLOP');
     return null;
   }
 
   async FlopAsync(): Promise<PokerPlayer> {
+    this.StepLog('FLOP');
     return null;
   }
 
   async TurnAsync(): Promise<PokerPlayer> {
+    this.StepLog('TURN');
     return null;
   }
 
   async RiverAsync(): Promise<PokerPlayer> {
+    this.StepLog('RIVER');
     return null;
   }
 
   async ShowdownAsync(): Promise<PokerPlayer> {
+    this.StepLog('SHOWDOWN');
     return null;
+  }
+
+  // Logger ---------------------------------------------------------
+  StepLog(message: string) {
+    console.log('*** *** *** *** *** *** *** *** *** ***')
+    console.log('\t' + message)
+    console.log('*** *** *** *** *** *** *** *** *** ***')    
   }
 }
