@@ -1,4 +1,4 @@
-import { ShuffleArray, WaitForSecondsAsync } from './Utils'
+import { ShuffleArray, WaitForSecondsAsync } from './Utils';
 import PokerPlayer from './PokerPlayer';
 
 export default class PokerGame {
