@@ -1,9 +1,11 @@
 import { BehaviorSubject } from 'rxjs';
 
 export default class PockerPlayer {
+  private _playerName: string;
   private _hand: BehaviorSubject<string[]>;
 
-  constructor() {
+  constructor(playerName: string) {
+    this._playerName = playerName;
     this._hand = new BehaviorSubject<string[]>([]);
   }
 
