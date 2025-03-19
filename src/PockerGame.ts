@@ -10,10 +10,14 @@ export default class PockerGame {
       new PockerPlayer('player_a'),
       new PockerPlayer('pocker_b'),
     ];
+    
+    this.ProcessGameAsync(players);
+  }
+
+  async ProcessGameAsync(players: PockerPlayer[]): Promise<void> {
     const deck = this.GenerateDeck();
 
     players.forEach(player => player.Hand = this.TakeCardsFromDeck(deck, 2))
-
   }
 
   GenerateDeck() {
