@@ -16,4 +16,8 @@ export default class PockerPlayer {
   public set Hand(value: string[]) {
     this._hand.next(value);
   }
+
+  public get Name() {
+    return this._playerName;
+  }
 }

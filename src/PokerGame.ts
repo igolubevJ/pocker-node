@@ -1,5 +1,6 @@
 import { ShuffleArray, WaitForSecondsAsync } from './Utils';
 import PokerPlayer from './PokerPlayer';
+import { Hand } from 'pokersolver';
 
 export default class PokerGame {
   constructor() {
