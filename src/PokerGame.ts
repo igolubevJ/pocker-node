@@ -121,6 +121,6 @@ export default class PokerGame {
   StepLog(message: string) {
     console.log('*** *** *** *** *** *** *** *** *** ***')
     console.log('\t' + message)
-    console.log('*** *** *** *** *** *** *** *** *** ***')    
+    console.log('\n')    
   }
 }
