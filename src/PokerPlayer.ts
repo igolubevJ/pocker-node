@@ -7,10 +7,6 @@ export default class PockerPlayer {
   constructor(playerName: string) {
     this._playerName = playerName;
     this._hand = new BehaviorSubject<string[]>([]);
-
-    this._hand.subscribe(value => {
-      console.log(`${this._playerName}: ${JSON.stringify(value)}`);
-    });
   }
 
   public get Hand() {
