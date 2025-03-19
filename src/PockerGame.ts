@@ -11,7 +11,11 @@ export default class PockerGame {
       new PockerPlayer('pocker_b'),
     ];
     
-    this.ProcessGameAsync(players);
+    let gameWinner: PockerPlayer;
+
+    while(gameWinner === null) {
+      await this.ProcessGameAsync(players);
+    }
   }
 
   async ProcessGameAsync(players: PockerPlayer[]): Promise<void> {
