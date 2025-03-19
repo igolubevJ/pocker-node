@@ -1,10 +1,16 @@
 import { ShuffleArray } from './Utils'
+import PockerPlayer from './PockerPlayer';
 
 export default class PockerGame {
   constructor() {
   }
 
   async RunAsync(): Promise<void> {
+    const players: PockerPlayer[] = [
+      new PockerPlayer('player_a'),
+      new PockerPlayer('pocker_b'),
+    ];
+
     const deck = this.GenerateDeck();
 
     console.log(JSON.stringify(deck));
