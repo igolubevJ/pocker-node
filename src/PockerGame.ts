@@ -10,11 +10,10 @@ export default class PockerGame {
       new PockerPlayer('player_a'),
       new PockerPlayer('pocker_b'),
     ];
-
     const deck = this.GenerateDeck();
 
-    console.log(JSON.stringify(deck));
-    console.log(`Cards in deck: ${deck.length}`);
+    players.forEach(player => player.Hand = this.TakeCardsFromDeck(deck, 2))
+
   }
 
   GenerateDeck() {
@@ -37,5 +36,19 @@ export default class PockerGame {
     }
 
     return ShuffleArray(cards);
+  }
+
+  TakeCardsFromDeck(deck: string[], count: number) : string[] {
+    if (deck.length < count) {
+      throw new Error('GetCardsFromDeck() not enough cards in deck')
+    }
+
+    const cards: string[] = [];
+
+    for (let i = 0; i < count; i++) {
+      cards.push(deck.pop());
+    }
+
+    return cards;
   }
 }
