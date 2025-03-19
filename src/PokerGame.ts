@@ -69,4 +69,26 @@ export default class PokerGame {
     // todo: implement logic
     return null;
   }
+
+  // Game state ----------------------------------------------------
+  
+  async PreflopAsync(): Promise<PokerPlayer> {
+    return null;
+  }
+
+  async FlopAsync(): Promise<PokerPlayer> {
+    return null;
+  }
+
+  async TurnAsync(): Promise<PokerPlayer> {
+    return null;
+  }
+
+  async RiverAsync(): Promise<PokerPlayer> {
+    return null;
+  }
+
+  async ShowdownAsync(): Promise<PokerPlayer> {
+    return null;
+  }
 }
