@@ -27,6 +27,14 @@ export default class PokerGame {
     const deck = this.GenerateDeck();
 
     players.forEach(player => player.Hand = this.TakeCardsFromDeck(deck, 2))
+  
+    const streets: (() => Promise<PokerPlayer>)[] = [
+      () => this.PreflopAsync(),
+      () => this.FlopAsync(),
+      () => this.TurnAsync(),
+      () => this.RiverAsync(),
+      () => this.ShowdownAsync(),
+    ];
   }
 
   GenerateDeck() {
