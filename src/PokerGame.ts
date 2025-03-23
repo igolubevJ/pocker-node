@@ -45,9 +45,9 @@ export default class PokerGame {
 
     const streets: (() => Promise<PokerPlayer>)[] = [
       () => this.PreflopAsync(),
-      () => this.FlopAsync(),
-      () => this.TurnAsync(),
-      () => this.RiverAsync(),
+      () => this.FlopAsync(deck, tableCards),
+      () => this.TurnAsync(deck, tableCards),
+      () => this.RiverAsync(deck, tableCards),
       () => this.ShowdownAsync(players, tableCards),
     ];
 
@@ -151,8 +151,13 @@ export default class PokerGame {
     return null;
   }
 
-  async FlopAsync(): Promise<PokerPlayer> {
+  async FlopAsync(deck: string[], tableCards: string[]): Promise<PokerPlayer> {
     this.StepLog('FLOP');
+
+    const cards = this.TakeCardsFromDeck(deck, 3);
+    cards.forEach(card => tableCards.push(card));
+
+    console.log(`Table Cards: ${JSON.stringify(tableCards)}`);
     return null;
   }
 
