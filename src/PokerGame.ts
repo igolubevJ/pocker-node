@@ -1,6 +1,7 @@
-import { ShuffleArray, WaitForSecondsAsync } from './Utils';
+import { ShuffleArray, WaitForSecondsAsync, GetRandomElementFromArray } from './Utils';
 import PokerPlayer from './PokerPlayer';
 import { Hand } from 'pokersolver';
+import { GameParams } from './Params';
 
 type PlayerWinnerInfo = {
   player: PokerPlayer,
@@ -9,7 +10,11 @@ type PlayerWinnerInfo = {
 
 
 export default class PokerGame {
-  constructor() {
+  private _gameParams: GameParams;
+  private _dealerPlayer: PokerPlayer;
+
+  constructor(gameParams: GameParams) {
+    this._gameParams = gameParams;
   }
 
   async RunAsync(): Promise<void> {
@@ -20,6 +25,8 @@ export default class PokerGame {
     
     let round: number = 0;
     let gameWinner: PokerPlayer = null;
+
+    this._dealerPlayer = GetRandomElementFromArray(players);
 
     while(gameWinner === null) {
       this.StepLog(`Round: ${round} started.`);
@@ -148,6 +155,11 @@ export default class PokerGame {
   
   async PreflopAsync(): Promise<PokerPlayer> {
     this.StepLog('PREFLOP');
+
+    const smallBlind = Math.floor(this._gameParams.stack * this._gameParams.sbRate);
+    const bigBlind = Math.floor(this._gameParams.stack * this._gameParams.bbRate);
+
+
     return null;
   }
 
