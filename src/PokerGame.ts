@@ -1,6 +1,7 @@
 import { ShuffleArray, WaitForSecondsAsync } from './Utils';
 import PokerPlayer from './PokerPlayer';
 import { Hand } from 'pokersolver';
+import { GameParams } from './Params';
 
 type PlayerWinnerInfo = {
   player: PokerPlayer,
@@ -9,7 +10,10 @@ type PlayerWinnerInfo = {
 
 
 export default class PokerGame {
-  constructor() {
+  private _gameParams: GameParams;
+  
+  constructor(gameParams: GameParams) {
+    this._gameParams = gameParams;
   }
 
   async RunAsync(): Promise<void> {
