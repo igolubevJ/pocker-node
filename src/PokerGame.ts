@@ -11,7 +11,7 @@ type PlayerWinnerInfo = {
 
 export default class PokerGame {
   private _gameParams: GameParams;
-  
+
   constructor(gameParams: GameParams) {
     this._gameParams = gameParams;
   }
@@ -152,6 +152,10 @@ export default class PokerGame {
   
   async PreflopAsync(): Promise<PokerPlayer> {
     this.StepLog('PREFLOP');
+
+    const smallBlind = Math.floor(this._gameParams.stack * this._gameParams.sbRate);
+    
+
     return null;
   }
 
