@@ -11,6 +11,7 @@ type PlayerWinnerInfo = {
 
 export default class PokerGame {
   private _gameParams: GameParams;
+  private _dealerPlayer: PokerPlayer;
 
   constructor(gameParams: GameParams) {
     this._gameParams = gameParams;
