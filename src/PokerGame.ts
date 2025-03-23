@@ -1,4 +1,4 @@
-import { ShuffleArray, WaitForSecondsAsync } from './Utils';
+import { ShuffleArray, WaitForSecondsAsync, GetRandomElementFromArray } from './Utils';
 import PokerPlayer from './PokerPlayer';
 import { Hand } from 'pokersolver';
 import { GameParams } from './Params';
@@ -25,6 +25,8 @@ export default class PokerGame {
     
     let round: number = 0;
     let gameWinner: PokerPlayer = null;
+
+    this._dealerPlayer = GetRandomElementFromArray(players);
 
     while(gameWinner === null) {
       this.StepLog(`Round: ${round} started.`);
