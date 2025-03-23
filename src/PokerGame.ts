@@ -161,13 +161,24 @@ export default class PokerGame {
     return null;
   }
 
-  async TurnAsync(): Promise<PokerPlayer> {
+  async TurnAsync(deck: string[], tableCards: string[]): Promise<PokerPlayer> {
     this.StepLog('TURN');
+
+    const cards = this.TakeCardsFromDeck(deck, 1);
+    cards.forEach(card => tableCards.push(card));
+
+    console.log(`Table Cards: ${JSON.stringify(tableCards)}`);
+
     return null;
   }
 
-  async RiverAsync(): Promise<PokerPlayer> {
+  async RiverAsync(deck: string[], tableCards: string[]): Promise<PokerPlayer> {
     this.StepLog('RIVER');
+
+    const cards = this.TakeCardsFromDeck(deck, 1);
+    cards.forEach(card => tableCards.push(card));
+
+    console.log(`Table Cards: ${JSON.stringify(tableCards)}`);
     return null;
   }
 
