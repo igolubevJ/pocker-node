@@ -7,3 +7,7 @@ export async function WaitForSecondsAsync(seconds: number): Promise<void> {
     setTimeout(res, seconds * 1000);
   });
 }
+
+export function GetRandomElementFromArray<T>(arr: T[]): T {
+  return arr[Math.floor(Math.random() * arr.length)];
+}
