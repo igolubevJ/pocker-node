@@ -154,7 +154,8 @@ export default class PokerGame {
     this.StepLog('PREFLOP');
 
     const smallBlind = Math.floor(this._gameParams.stack * this._gameParams.sbRate);
-    
+    const bigBlind = Math.floor(this._gameParams.stack * this._gameParams.bbRate);
+
 
     return null;
   }
